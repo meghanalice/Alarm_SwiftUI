@@ -6,14 +6,109 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		985701AD2DFFA5FA005338BB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9857012E2DFFA46F005338BB /* WidgetKit.framework */; };
+		985701AE2DFFA5FA005338BB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985701302DFFA46F005338BB /* SwiftUI.framework */; };
+		985701BB2DFFA5FA005338BB /* CountdownLiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 985701AC2DFFA5FA005338BB /* CountdownLiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		989461C22E03B28C00BC248B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 989461C12E03B28C00BC248B /* README.md */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		985701B92DFFA5FA005338BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 985700F02DFFA446005338BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 985701AB2DFFA5FA005338BB;
+			remoteInfo = CountdownLiveActivityExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		985701412DFFA470005338BB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				985701BB2DFFA5FA005338BB /* CountdownLiveActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		985700F82DFFA446005338BB /* ItsukiAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItsukiAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9857012E2DFFA46F005338BB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		985701302DFFA46F005338BB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		985701AC2DFFA5FA005338BB /* CountdownLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CountdownLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		986117042E00FED90005B53B /* CountdownLiveActivityExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CountdownLiveActivityExtension.entitlements; sourceTree = "<group>"; };
+		989461C12E03B28C00BC248B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		989462932E04D59E00BC248B /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		985701802DFFA500005338BB /* Exceptions for "ItsukiAlarm" folder in "ItsukiAlarm" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 985700F72DFFA446005338BB /* ItsukiAlarm */;
+		};
+		985701BF2DFFA5FA005338BB /* Exceptions for "CountdownLiveActivity" folder in "CountdownLiveActivityExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 985701AB2DFFA5FA005338BB /* CountdownLiveActivityExtension */;
+		};
+		985701C12DFFA62B005338BB /* Exceptions for "Shared" folder in "CountdownLiveActivityExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIntents.swift,
+				"Extensions/Alarm+Extensions.swift",
+				"Extensions/AlarmButton+Extensions.swift",
+				"Extensions/Array+Extensions.swift",
+				"Extensions/Color+Extensions.swift",
+				"Extensions/Date+Extensions.swift",
+				"Extensions/Error+Extensions.swift",
+				"Extensions/Locale+Extensions.swift",
+				"Extensions/Set+Extensions.swift",
+				"Extensions/TimeInterval+Extensions.swift",
+				"Extensions/View+Extensions.swift",
+				ItsukiAlarmManager.swift,
+				Models/AlarmMetadata.swift,
+				Models/ItsukiAlarm.swift,
+				Models/ItsukiAlarmType.swift,
+				Views/TimerDigitsView.swift,
+			);
+			target = 985701AB2DFFA5FA005338BB /* CountdownLiveActivityExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		985700FA2DFFA446005338BB /* ItsukiAlarm */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				985701802DFFA500005338BB /* Exceptions for "ItsukiAlarm" folder in "ItsukiAlarm" target */,
+			);
 			path = ItsukiAlarm;
+			sourceTree = "<group>";
+		};
+		985701242DFFA45C005338BB /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				985701C12DFFA62B005338BB /* Exceptions for "Shared" folder in "CountdownLiveActivityExtension" target */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		985701AF2DFFA5FA005338BB /* CountdownLiveActivity */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				985701BF2DFFA5FA005338BB /* Exceptions for "CountdownLiveActivity" folder in "CountdownLiveActivityExtension" target */,
+			);
+			path = CountdownLiveActivity;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,13 +121,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		985701A92DFFA5FA005338BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				985701AE2DFFA5FA005338BB /* SwiftUI.framework in Frameworks */,
+				985701AD2DFFA5FA005338BB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		985700EF2DFFA446005338BB = {
 			isa = PBXGroup;
 			children = (
+				989461C12E03B28C00BC248B /* README.md */,
+				989462932E04D59E00BC248B /* demo.gif */,
+				986117042E00FED90005B53B /* CountdownLiveActivityExtension.entitlements */,
+				985701242DFFA45C005338BB /* Shared */,
 				985700FA2DFFA446005338BB /* ItsukiAlarm */,
+				985701AF2DFFA5FA005338BB /* CountdownLiveActivity */,
+				9857012D2DFFA46F005338BB /* Frameworks */,
 				985700F92DFFA446005338BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +151,18 @@
 			isa = PBXGroup;
 			children = (
 				985700F82DFFA446005338BB /* ItsukiAlarm.app */,
+				985701AC2DFFA5FA005338BB /* CountdownLiveActivityExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9857012D2DFFA46F005338BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9857012E2DFFA46F005338BB /* WidgetKit.framework */,
+				985701302DFFA46F005338BB /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,13 +175,16 @@
 				985700F42DFFA446005338BB /* Sources */,
 				985700F52DFFA446005338BB /* Frameworks */,
 				985700F62DFFA446005338BB /* Resources */,
+				985701412DFFA470005338BB /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				985701BA2DFFA5FA005338BB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				985700FA2DFFA446005338BB /* ItsukiAlarm */,
+				985701242DFFA45C005338BB /* Shared */,
 			);
 			name = ItsukiAlarm;
 			packageProductDependencies = (
@@ -69,6 +192,28 @@
 			productName = ItsukiAlarm;
 			productReference = 985700F82DFFA446005338BB /* ItsukiAlarm.app */;
 			productType = "com.apple.product-type.application";
+		};
+		985701AB2DFFA5FA005338BB /* CountdownLiveActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 985701BC2DFFA5FA005338BB /* Build configuration list for PBXNativeTarget "CountdownLiveActivityExtension" */;
+			buildPhases = (
+				985701A82DFFA5FA005338BB /* Sources */,
+				985701A92DFFA5FA005338BB /* Frameworks */,
+				985701AA2DFFA5FA005338BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				985701AF2DFFA5FA005338BB /* CountdownLiveActivity */,
+			);
+			name = CountdownLiveActivityExtension;
+			packageProductDependencies = (
+			);
+			productName = CountdownLiveActivityExtension;
+			productReference = 985701AC2DFFA5FA005338BB /* CountdownLiveActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +226,9 @@
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					985700F72DFFA446005338BB = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					985701AB2DFFA5FA005338BB = {
 						CreatedOnToolsVersion = 26.0;
 					};
 				};
@@ -100,12 +248,21 @@
 			projectRoot = "";
 			targets = (
 				985700F72DFFA446005338BB /* ItsukiAlarm */,
+				985701AB2DFFA5FA005338BB /* CountdownLiveActivityExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		985700F62DFFA446005338BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				989461C22E03B28C00BC248B /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		985701AA2DFFA5FA005338BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +279,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		985701A82DFFA5FA005338BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		985701BA2DFFA5FA005338BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 985701AB2DFFA5FA005338BB /* CountdownLiveActivityExtension */;
+			targetProxy = 985701B92DFFA5FA005338BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		985701012DFFA446005338BB /* Debug */ = {
@@ -249,10 +421,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ItsukiAlarm/ItsukiAlarm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NLTYK5T6U3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ItsukiAlarm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -279,10 +454,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ItsukiAlarm/ItsukiAlarm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NLTYK5T6U3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ItsukiAlarm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +475,66 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		985701BD2DFFA5FA005338BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CountdownLiveActivityExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NLTYK5T6U3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CountdownLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CountdownLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = itsuki.enjoy.ItsukiAlarm.CountdownLiveActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		985701BE2DFFA5FA005338BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CountdownLiveActivityExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NLTYK5T6U3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CountdownLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CountdownLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = itsuki.enjoy.ItsukiAlarm.CountdownLiveActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -321,6 +559,15 @@
 			buildConfigurations = (
 				985701042DFFA446005338BB /* Debug */,
 				985701052DFFA446005338BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		985701BC2DFFA5FA005338BB /* Build configuration list for PBXNativeTarget "CountdownLiveActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				985701BD2DFFA5FA005338BB /* Debug */,
+				985701BE2DFFA5FA005338BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
