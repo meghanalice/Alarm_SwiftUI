@@ -64,7 +64,7 @@ struct ContentView: View {
                         {
                             self.recorderAlarmTitle = alarm.metadata.title
                             self.showRecorder = true
-                        } else if let alarm = alarmManager.recentAlarms.first(where: {
+                        } else if let alarm = alarmManager.publicRecentAlarms.first(where: {
                             $0.id == alarmId
                         }) {
                             self.recorderAlarmTitle = alarm.metadata.title
@@ -106,3 +106,4 @@ struct ContentView: View {
 
     }
 }
+

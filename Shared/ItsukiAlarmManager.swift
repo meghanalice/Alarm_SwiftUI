@@ -97,6 +97,8 @@ class ItsukiAlarmManager {
             }
         }
     }
+    // Read-only accessor to recent alarms for views that need to display them
+    var publicRecentAlarms: [ItsukiAlarm] { recentAlarms }
     
     var runningTraditionalAlarms: [ItsukiAlarm] {
         return self.runningAlarms.filter({$0.itsukiAlarmType == .alarm}).sorted
@@ -610,3 +612,4 @@ class ItsukiAlarmManager {
         }
     }
 }
+
