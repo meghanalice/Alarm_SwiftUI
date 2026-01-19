@@ -34,6 +34,8 @@ struct ContentView: View {
                                         TimerListView()
                                     case .custom:
                                         CustomListView()
+                                    case .recordings:
+                                        RecordingsListView()
                                     }
                                 }
                                 .environment(self.alarmManager)
@@ -106,4 +108,3 @@ struct ContentView: View {
 
     }
 }
-

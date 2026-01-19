@@ -14,7 +14,7 @@ nonisolated struct _AlarmMetadata: AlarmMetadata {
     var icon: Icon
     var title: String
     var createdAt: Date = Date()
-    
+
     enum Icon: String, Codable, CaseIterable {
         case sun = "sun.max.fill"
         case moonStar = "moon.stars.fill"
@@ -22,7 +22,7 @@ nonisolated struct _AlarmMetadata: AlarmMetadata {
         case rainbow = "rainbow"
         case drop = "drop.degreesign.fill"
         case flame = "flame"
-        
+
         var title: String {
             switch self {
             case .sun: return "Sun"
@@ -34,19 +34,19 @@ nonisolated struct _AlarmMetadata: AlarmMetadata {
             }
         }
     }
-    
+
     static var alarmDefaultMetadata: Self {
         .init(icon: .sun, title: "Alarm")
     }
-    
+
     static var timerDefaultMetadata: Self {
         .init(icon: .sun, title: "Timer")
     }
-    
+
     static var customDefaultMetadata: Self {
         .init(icon: .sun, title: "Custom")
     }
-    
+
     static func defaultMetadata(for type: ItsukiAlarmType) -> Self {
         switch type {
         case .alarm:
@@ -54,6 +54,8 @@ nonisolated struct _AlarmMetadata: AlarmMetadata {
         case .timer:
             return .timerDefaultMetadata
         case .custom:
+            return .customDefaultMetadata
+        case .recordings:
             return .customDefaultMetadata
         }
     }

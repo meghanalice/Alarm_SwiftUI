@@ -15,24 +15,6 @@ struct VoiceRecorderView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if audioRecorder.recordings.isEmpty {
-                    Text("No Recordings")
-                        .foregroundColor(.gray)
-                        .padding()
-                } else {
-                    List {
-                        ForEach(audioRecorder.recordings) { recording in
-                            VStack(alignment: .leading) {
-                                Text(recording.alarmTitle)
-                                    .font(.headline)
-                                Text(recording.createdAt.formatted(date: .long, time: .shortened))
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                    }
-                }
-
                 Spacer()
 
                 if audioRecorder.isRecording {
@@ -64,6 +46,8 @@ struct VoiceRecorderView: View {
                     .foregroundStyle(audioRecorder.isRecording ? .red : .blue)
                 }
                 .padding()
+
+                Spacer()
             }
             .navigationTitle("Voice Recorder")
             .toolbar {
@@ -73,10 +57,46 @@ struct VoiceRecorderView: View {
                     }
                 }
             }
-            .onAppear {
-                audioRecorder.fetchRecordings()
+        }
+    }
+}
+
+struct RecordingsListView: View {
+    @StateObject private var audioRecorder = AudioRecorder(alarmTitle: "")
+
+    var body: some View {
+        VStack {
+            if audioRecorder.recordings.isEmpty {
+                ContentUnavailableView("No Recordings", systemImage: "mic.slash")
+            } else {
+                List {
+                    ForEach(audioRecorder.recordings) { recording in
+                        VStack(alignment: .leading) {
+                            Text(recording.alarmTitle)
+                                .font(.headline)
+                            Text(recording.createdAt.formatted(date: .long, time: .shortened))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .onDelete(perform: delete)
+                }
             }
         }
+        .navigationTitle("Recordings")
+        .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            audioRecorder.fetchRecordings()
+        }
+    }
+
+    func delete(at offsets: IndexSet) {
+        var urlsToDelete = [URL]()
+        for index in offsets {
+            urlsToDelete.append(audioRecorder.recordings[index].fileURL)
+        }
+
+        audioRecorder.deleteRecording(urls: urlsToDelete)
     }
 }
 
@@ -177,5 +197,17 @@ class AudioRecorder: NSObject, ObservableObject, AVAudioRecorderDelegate {
         } catch {
             print("Could not fetch recordings: \(error)")
         }
+    }
+
+    func deleteRecording(urls: [URL]) {
+        for url in urls {
+            do {
+                try FileManager.default.removeItem(at: url)
+            } catch {
+                print("File could not be deleted: \(error)")
+            }
+        }
+
+        fetchRecordings()
     }
 }

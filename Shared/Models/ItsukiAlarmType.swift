@@ -11,7 +11,8 @@ enum ItsukiAlarmType: CaseIterable {
     case alarm
     case timer
     case custom
-    
+    case recordings
+
     var title: String {
         switch self {
         case .alarm:
@@ -20,9 +21,11 @@ enum ItsukiAlarmType: CaseIterable {
             return "Timers"
         case .custom:
             return "Customs"
+        case .recordings:
+            return "Recordings"
         }
     }
-    
+
     var icon: String {
         switch self {
         case .alarm:
@@ -31,9 +34,11 @@ enum ItsukiAlarmType: CaseIterable {
             return "timer"
         case .custom:
             return "scribble"
+        case .recordings:
+            return "waveform"
         }
     }
-    
+
     var tabValue: Int {
         switch self {
         case .alarm:
@@ -42,6 +47,8 @@ enum ItsukiAlarmType: CaseIterable {
             return 1
         case .custom:
             return 2
+        case .recordings:
+            return 3
         }
     }
 }
