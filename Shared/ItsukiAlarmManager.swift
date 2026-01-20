@@ -604,7 +604,7 @@ class ItsukiAlarmManager {
         // - the snooze function of an alarm.
         let secondaryBehavior: AlarmPresentation.Alert.SecondaryButtonBehavior? =
             (countdown || snooze) ? .countdown : nil
-        let secondaryButton: AlarmButton? = snooze ? .snoozeButton : countdown ? .repeatButton : nil
+        let secondaryButton: AlarmButton? = snooze ? .snoozeButton : countdown ? .recordButton : nil
 
         let alert = AlarmPresentation.Alert(
             title: LocalizedStringResource(stringLiteral: title),

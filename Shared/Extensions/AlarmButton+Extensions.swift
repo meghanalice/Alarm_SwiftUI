@@ -17,16 +17,20 @@ extension AlarmButton {
     static var pauseButton: Self {
         AlarmButton(text: "Pause", textColor: .alarmTint, systemImageName: "pause.fill")
     }
-    
+
     static var resumeButton: Self {
         AlarmButton(text: "Resume", textColor: .alarmTint, systemImageName: "play.fill")
     }
-    
+
     static var repeatButton: Self {
         AlarmButton(text: "Repeat", textColor: .white, systemImageName: "repeat")
     }
-    
+
     static var stopButton: Self {
         AlarmButton(text: "Stop", textColor: .white, systemImageName: "xmark")
+    }
+
+    static var recordButton: Self {
+        AlarmButton(text: "Record", textColor: .white, systemImageName: "record.circle.fill")
     }
 }

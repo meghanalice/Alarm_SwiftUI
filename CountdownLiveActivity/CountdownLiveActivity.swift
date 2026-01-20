@@ -79,6 +79,22 @@ struct CountdownLiveActivity: Widget {
                     .foregroundStyle(attributes.tintColor)
                     .dynamicIsland(verticalPlacement: .belowIfTooWide)
                 }
+                DynamicIslandExpandedRegion(.bottom) {
+                    if case .alert(_) = state.mode {
+                        Link(
+                            destination: URL(
+                                string: "itsukialarm:///record/\(state.alarmID.uuidString)")!
+                        ) {
+                            Label("Open Recorder", systemImage: "mic.fill")
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 12)
+                                .background(attributes.tintColor)
+                                .clipShape(Capsule())
+                        }
+                    }
+                }
             } compactLeading: {
                 progressView(tint: attributes.tintColor, mode: state.mode)
                     .padding(.all, 4)
@@ -93,7 +109,13 @@ struct CountdownLiveActivity: Widget {
                     .frame(width: 48)
             }
             .keylineTint(attributes.tintColor)
-            .widgetURL(state.alarmID.widgetURL)
+            .widgetURL(
+                {
+                    if case .alert(_) = state.mode {
+                        return URL(string: "itsukialarm:///record/\(state.alarmID.uuidString)")
+                    }
+                    return state.alarmID.widgetURL
+                }())
         }
     }
 
@@ -158,6 +180,7 @@ struct AlarmControls: View {
                     }
                 )
                 .tint(pauseButton?.textColor.opacity(0.3))
+                .roundButtonStyle()
 
             case .paused(_):
                 let resumeButton = self.presentation.paused?.resumeButton
@@ -169,34 +192,26 @@ struct AlarmControls: View {
                     }
                 )
                 .tint(resumeButton?.textColor.opacity(0.3))
+                .roundButtonStyle()
 
             // timer alerting or alarm snoozing
             case .alert(_):
                 Link(destination: URL(string: "itsukialarm:///record/\(id.uuidString)")!) {
-                    Image(systemName: "mic.circle.fill")
-                        .font(.system(size: 24))
+                    Image(systemName: AlarmButton.recordButton.systemImageName)
+                        .foregroundStyle(AlarmButton.recordButton.textColor)
+                        .font(.system(size: 20))
                         .fontWeight(.bold)
+                        .frame(width: 20, height: 20)
                         .padding(.all, 4)
-                        .foregroundStyle(Color.red)
                 }
-
-                if let secondaryButton = self.presentation.alert.secondaryButton {
-                    Button(
-                        intent: RepeatIntent(alarmID: id),
-                        label: {
-                            self.buttonImage(secondaryButton)
-                                .foregroundStyle(Color.alarmTint)
-                        }
-                    )
-                    .tint(Color.alarmTint.opacity(0.3))
-                }
+                .tint(Color.alarmTint.opacity(0.3))
+                .roundButtonStyle()
 
             default:
                 EmptyView()
             }
 
         }
-        .roundButtonStyle()
     }
 
     private func buttonImage(_ alarmButton: AlarmButton?) -> some View {
